@@ -40,47 +40,34 @@ nextNodeToInfect = 1
 # Get list of all infected nodes in graph.
 roundcount = 0
 infectedperround = []
+infectionCount = 0
 while(1):
-    infectionCount = 0
     infectedNodeList = []
     # Get list of infected nodes.
     for n in G2.nodes():
         if G2.node[n]['status'] == 'inf':
             infectedNodeList.append(n)
-        
+           
     # Iterate through these infected nodes and check for neighbour which is uinf.
-    nodeFoundFlag = 0
+    # In which case, evaluate probability and infect.
+       
     for n in infectedNodeList:
-        if(nodeFoundFlag == 1):
-            break
         neighboursList = G2.neighbors(n)
         for node in neighboursList:
+            # If node is uninfected, then infect with prob.
             if(G2.node[node]['status'] == 'uinf'):
-                nextNodeToInfect = node
-                nodeFoundFlag = 1
-                break
-    if(len(infectedNodeList) == len(G2)):
-        break
-
-    # Infect this selected  node.
-    nx.set_node_attributes(G2, name = 'status', values = {nextNodeToInfect : 'inf'})
-    infectionCount += 1
-    # Create a list of nodes adjacent to this selected node.
-    adjNodes = list(G2.neighbors(nextNodeToInfect))
-    # Iterate through this list.
-    # If node is not infected, evaluate it with probability of p, and infect it.
-    for node in adjNodes:
-        if(G2.node[node]['status'] == 'uinf'):
-            # Evaluate probability.
-            percent = p * 100
-            if(random.randint(0,100) < percent):
-                # Infect node.
-                nx.set_node_attributes(G2, name = 'status', values = {node : 'inf'})
-                infectionCount += 1
-    # Now, one round is complete.
+                 percent = p * 100
+                 if(random.randint(0,100) < percent):
+                     # Infect node.
+                     nx.set_node_attributes(G2, name = 'status', values = {node : 'inf'})
+                     infectionCount += 1
+    print(infectedNodeList)            
     roundcount += 1
     infectedperround.append(infectionCount)
-    #print("Number of infected nodes: ", len(infectedNodeList))
+    if(len(infectedNodeList) == len(G2)):
+        break
+   
+print("Number of infected nodes: ", len(infectedNodeList))
 
 print("Number of rounds: ", roundcount)
 print(infectedperround)

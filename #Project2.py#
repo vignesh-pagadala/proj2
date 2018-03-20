@@ -13,8 +13,16 @@ import matplotlib.pyplot as plt
 
 # Creating graph and writing to CSV file.
 
+
 # Erdos-Renyi graph
-G = nx.erdos_renyi_graph(500, 0.3)
+#G = nx.erdos_renyi_graph(500, 0.3)
+
+# Barabasi Albert graph
+#G = nx.barabasi_albert_graph(500, 0.3)
+
+# Erdos-Renyi graph
+#G = nx.erdos_renyi_graph(500, 0.3)
+
 edgeList = G.edges()
 edgeList = list(edgeList)
 print(G.number_of_edges())
