@@ -48,9 +48,8 @@ nx.set_node_attributes(G2, name = 'cured', values = {initInocNode : 'yes'})
 
 roundcount = 0
 infectedperround = []
-infectionCount = 0
 inocperround = []
-inoccount = 0
+
 while(1):
     inocNodeList = []
     infectedNodeList = []
@@ -58,10 +57,13 @@ while(1):
     for n in G2.nodes():
         if (G2.node[n]['status'] == 'inf'):
             infectedNodeList.append(n)
+    infectionCount = len(infectedNodeList)
+
     # Get list of inoculated nodes.
     for n in G2.nodes():
         if G2.node[n]['cured'] == 'yes':
             inocNodeList.append(n)
+    inoccount = len(inocNodeList)
     
     # Iterate through these infected nodes and check for neighbour which is uinf.
     # In which case, evaluate probability and infect.
@@ -75,8 +77,7 @@ while(1):
                  if(random.randint(0,100) < percent):
                      # Infect node.
                      nx.set_node_attributes(G2, name = 'status', values = {node : 'inf'})
-                     infectionCount += 1
-
+                    
     # INOCULATION
     
     for n in inocNodeList:
@@ -109,6 +110,9 @@ print("Infected: ", infectedperround)
 #nx.draw_networkx_labels(G2, nx.spring_layout(G2), labels = node_labels)
 
 plt.plot(infectedperround)
+plt.title('Rate of Worm Spread for a Watts_Strogatz Network with Cure Applied')
+plt.xlabel('Round')
+plt.ylabel('Number of Infected Nodes')
 plt.show()
 
 

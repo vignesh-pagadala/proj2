@@ -13,15 +13,14 @@ import matplotlib.pyplot as plt
 
 # Creating graph and writing to CSV file.
 
-
 # Erdos-Renyi graph
-#G = nx.erdos_renyi_graph(500, 0.3)
+#G = nx.erdos_renyi_graph(1500, 0.3)
 
 # Barabasi Albert graph
-#G = nx.barabasi_albert_graph(500, 3)
+#G = nx.barabasi_albert_graph(1500, 3)
 
 # Watts-Strogatz graph
-G = nx.watts_strogatz_graph(500, 5, 0.6)
+#G = nx.watts_strogatz_graph(1500, 5, 0.6)
 
 #print(G.number_of_edges())
 #nx.draw(G)
@@ -31,7 +30,7 @@ edgeList = G.edges()
 edgeList = list(edgeList)
 print(G.number_of_edges())
 # Write edgeList to .csv file.
-with open('Watts_Strogatz_500.csv','w') as out:
+with open('Watts_Strogatz_1500.csv','w') as out:
     csv_out=csv.writer(out)
     for row in edgeList:
         csv_out.writerow(row)
