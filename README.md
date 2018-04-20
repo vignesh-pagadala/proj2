@@ -1,45 +1,43 @@
 # Worm Propagation Simulator
 
-> **[?]** 
-> Provide short description for your project here.
-
-
-
----
-
 ## About
 
-> **[?]**
-> Provide general information about your project here.
-> What problem does it (intend to) solve?
-> What is the purpose of your project?
-> Why did you undertake it?
-> You don't have to answer all the questions - just the ones relevant to your project.
+In this project, we simulate the propagation of a worm in a computer network, and observe the effects after applying a cure. The simulation is initially done without applying a cure, for a network of 500, 1000 and 1500 nodes. We then apply a cure for this network, and observe the behavior.
 
+The following three network topologies are used:
 
+1. Erdos-Renyi
+2. Barabasi-Albert
+3. Watts-Strogatz
+
+For this simulation, we will be using Python and the networkx package.
 
 ### Built With
 
-> **[?]**
-> Please provide the technologies that are used in the project.
+* Python
 
 ## Getting Started
 
 ### Prerequisites
 
-> **[?]**
-> What are the project requirements/dependencies?
+* Anaconda distribution: https://www.anaconda.com/products/individual
+* Python packages: networkX, matplotlib
 
 ### Installation
 
-> **[?]**
-> Proceed to describe how to install and get started with the project.
+To install, clone the GitHub repo:
+
+`git clone https://github.com/vignesh-pagadala/worm-propagation-simulator.git`
 
 ## Usage
 
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
+To reproduce, simply run the Python scripts in the /src directory.
+
+`cd src/`
+
+`python Simulation_with_Cure.py`
+
+`python Simulation_without_Cure.py`
 
 ## Roadmap
 
@@ -50,9 +48,6 @@ See the [open issues](https://github.com/vignesh-pagadala/worm-propagation-simul
 - [Newest Bugs](https://github.com/vignesh-pagadala/worm-propagation-simulator/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 ## Support
-
-> **[?]**
-> Provide additional ways to contact the project maintainer/maintainers.
 
 Reach out to the maintainer at one of the following places:
 
@@ -95,9 +90,3 @@ _For more info, please refer to the [security](docs/SECURITY.md)._
 This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
-
-## Acknowledgements
-
-> **[?]**
-> If your work was funded by any organization or institution, acknowledge their support here.
-> In addition, if your work relies on other software libraries, or was inspired by looking at other work, it is appropriate to acknowledge this intellectual debt too.
